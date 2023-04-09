@@ -1,4 +1,4 @@
-package remainder.leetcode;
+package etc.leetcode;
 
 public class P1010 {
 // 두 노래 길이의 합이 60으로 나누어 떨어지는 모든 조합의 개수를 리턴

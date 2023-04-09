@@ -1,4 +1,4 @@
-package w56;
+package study.w56;
 
 import java.util.HashMap;
 

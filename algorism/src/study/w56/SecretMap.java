@@ -1,4 +1,4 @@
-package w56;
+package study.w56;
 
 public class SecretMap {
 
@@ -9,30 +9,12 @@ public class SecretMap {
     두 개의 지도 정보를 합쳐서 하나의 완성된 지도를 만드는 논리적 사고 능력을 평가합니다.
 
   비밀 지도 해독
-    숫자를 2진수로 변환
-      2진수를 비교
-    결과 출력 - 담을 곳이 필요
+
+  숫자를 2진수로 변환
+    2진수를 비교
+    결과담기
+  결과 출력
    */
-  public String[] solution2(int n, int[] arr1, int[] arr2) {
-    String[] answer = new String[n];
-
-    for (int i = 0; i < n; i++) {
-      int b = arr1[i] | arr2[i];
-      StringBuilder sb = new StringBuilder();
-      String s = Integer.toBinaryString(b);
-      for (int j = 0; j < n - s.length(); j++) {
-        sb.append(' ');
-      }
-      for (int j = 0; j < s.length(); j++) {
-        char c = s.charAt(j) == '1' ? '#' : ' ';
-        sb.append(c);
-      }
-
-      answer[i] = sb.toString();
-    }
-    return answer;
-  }
-
   public String[] solution(int n, int[] arr1, int[] arr2) {
     String[] answer = new String[n];
 
@@ -54,6 +36,26 @@ public class SecretMap {
       answer[i] = sb.toString();
     }
 
+    return answer;
+  }
+
+  public String[] solution2(int n, int[] arr1, int[] arr2) {
+    String[] answer = new String[n];
+
+    for (int i = 0; i < n; i++) {
+      String s = Integer.toBinaryString(arr1[i] | arr2[i]);
+
+      StringBuilder sb = new StringBuilder();
+
+      sb.append(" ".repeat(n - s.length()));
+
+      for (int j = 0; j < s.length(); j++) {
+        char c = s.charAt(j) == '1' ? '#' : ' ';
+        sb.append(c);
+      }
+
+      answer[i] = sb.toString();
+    }
     return answer;
   }
 

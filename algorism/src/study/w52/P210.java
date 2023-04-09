@@ -1,4 +1,4 @@
-package w52;
+package study.w52;
 
 import java.util.ArrayDeque;
 import java.util.HashMap;

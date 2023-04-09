@@ -1,4 +1,4 @@
-package w50;
+package study.w50;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

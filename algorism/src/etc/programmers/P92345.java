@@ -1,4 +1,4 @@
-package minimax.programmers;
+package etc.programmers;
 
 // 플레이어 A,B
 // 양 플레이어가 캐릭터를 몇 번 움직이게 될지 예측

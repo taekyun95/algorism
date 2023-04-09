@@ -1,4 +1,4 @@
-package array;
+package etc.array;
 
 public class P120833 {
 

@@ -1,6 +1,4 @@
-package string;
-
-import java.util.Arrays;
+package etc.string;
 
 public class P120895 {
   public String solution(String my_string, int num1, int num2) {

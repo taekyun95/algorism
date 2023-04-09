@@ -1,4 +1,4 @@
-package prefixsum.programmers;
+package etc.programmers;
 
 /*
 N x M 크기의 행렬 모양의 게임 맵이 있습니다.

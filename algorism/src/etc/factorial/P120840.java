@@ -1,4 +1,4 @@
-package factorial;
+package etc.factorial;
 
 import java.math.BigInteger;
 

@@ -1,4 +1,4 @@
-package w51;
+package study.w51;
 
 public class P91 {
 
