@@ -1,5 +1,8 @@
 package algorism;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Trie {
 
   private TrieNode root;
@@ -8,34 +11,55 @@ public class Trie {
     root = new TrieNode();
   }
 
-  public void insert(String word) {
+  public void insertMap(String word) {
     TrieNode node = root;
     for (char c : word.toCharArray()) {
-      // 자식에게 해당 알바벳이 없다면 생성
-      if (node.children[c - 'a'] == null) {
-        node.children[c - 'a'] = new TrieNode();
-      }
-      node = node.children[c - 'a'];
+      node = node.childrenMap.computeIfAbsent(c, character -> new TrieNode());
       node.count++;
     }
     node.isEndOfWord = true;
   }
 
-  public boolean search(String word) {
+  public boolean searchMap(String word) {
     TrieNode node = root;
     for (char c : word.toCharArray()) {
-      if (node.children[c - 'a'] == null) {
+      if (!node.childrenMap.containsKey(c)) {
         return false;
       }
-      node = node.children[c - 'a'];
+      node = node.childrenMap.get(c);
+    }
+    return node.isEndOfWord;
+  }
+
+  public void insertArrays(String word) {
+    TrieNode node = root;
+    for (char c : word.toCharArray()) {
+      // 자식에게 해당 알바벳이 없다면 생성
+      if (node.childrenArray[c - 'a'] == null) {
+        node.childrenArray[c - 'a'] = new TrieNode();
+      }
+      node = node.childrenArray[c - 'a'];
+      node.count++;
+    }
+    node.isEndOfWord = true;
+  }
+
+  public boolean searchArray(String word) {
+    TrieNode node = root;
+    for (char c : word.toCharArray()) {
+      if (node.childrenArray[c - 'a'] == null) {
+        return false;
+      }
+      node = node.childrenArray[c - 'a'];
     }
     return node.isEndOfWord;
   }
 
   class TrieNode {
 
+    Map<Character, TrieNode> childrenMap = new HashMap<>();
     // 크기가 26인 이유는 알파벳를 기준으로하기 때문입니다.
-    TrieNode[] children = new TrieNode[26];
+    TrieNode[] childrenArray = new TrieNode[26];
     boolean isEndOfWord;
     /*
     최소한의 입력을 확인하기 위해
