@@ -1,4 +1,4 @@
-package study.w63
+package study.w62
 
 class StringCompression {
 
