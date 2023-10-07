@@ -21,6 +21,19 @@ public class BinaryTreeRightSideView {
     return rightside;
   }
 
+  public List<Integer> rightSideView2(TreeNode root) {
+    List<Integer> result = new ArrayList<>();
+    dfs(root, result, 0);
+    return rightside;
+  }
+
+  private void dfs(TreeNode root, List<Integer> result, int i) {
+    if (root == null) return;
+    if (i == result.size()) result.add(root.val);
+    dfs(root.right, result, i + 1);
+    dfs(root.left, result, i + 1);
+  }
+
   private void rightSideView(TreeNode root, List<Integer> result) {
     if (root == null) return;
     result.add(root.val);
